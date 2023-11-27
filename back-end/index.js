@@ -9,10 +9,6 @@ const users = [
   { name: "Amraa", id: "16" },
 ];
 
-app.get("/users", (req, res) => {
-  const { id } = req.params;
-  res.json(users);
-});
 app.post("/users", (req, res) => {
   const { name, id } = req.body;
   users.push({ name, id })
