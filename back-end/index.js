@@ -13,13 +13,6 @@ app.get("/users", (req, res) => {
   const { id } = req.params;
   res.json(users);
 });
-
-app.get("/user/:name", (req, res) => {
-  const { name } = req.params;
-  const user = users.filter((user) => user.name == name);
-
-  res.json(user);
-});
 app.post("/users", (req, res) => {
   const { name, id } = req.body;
   users.push({ name, id })
