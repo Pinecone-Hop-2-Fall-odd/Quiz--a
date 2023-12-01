@@ -1,12 +1,16 @@
 import axios from "axios";
 import { Inter } from "next/font/google";
 import { useEffect } from "react";
-import logopng from "../../public/logo2.png";
+import logopng from "../../public/ht.png";
+import Link from "next/link";
 import Image from "next/image";
 
 export default function Home() {
   useEffect(() => {
-    axios.get("http://localhost:3000/users").then((res) => console.log(res));
+    axios.get("http://localhost:8000/users").then((res) => console.log(res));
+    // axios.post("http://localhost:8000/users", {}).then((res) => console.log(res));
+
+    // fetch === axios
   }, []);
 
   return (
@@ -20,16 +24,22 @@ export default function Home() {
     >
       <div className="main">
         <Image
+          className="imgcss"
           src={logopng}
           alt="logo"
-          style={{ width: "100%", height: "40vh" }}
+          // style={{ width: "100%", height: "40vh" }}
         />
       </div>
       <div className="main2">
-        <div className="title">Welcome</div>
-        <div style={{display:"flex", gap:"20px"}}>
-          <button className="bttn">Sign up</button>
-          <button className="bttn2">Log in</button>
+        <div className="title2">Welcome</div>
+        <div className="title">いらっしゃいませ</div>
+        <div style={{ display: "flex", gap: "20px" }}>
+          <Link className="bttn" href="/signup">
+            Sign up
+          </Link>
+          <Link className="bttn2" href="/login">
+            Log in
+          </Link>
         </div>
       </div>
     </div>

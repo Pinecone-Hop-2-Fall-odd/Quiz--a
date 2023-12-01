@@ -12,18 +12,29 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #4a94e8;
+    background-color: #782323;
+}
+.imgcss {
+ width: 400px;
+ height: 420px;
 }
 .title {
     font-size: 100px;
-    color: white;
+    color: #360404;
+}
+.title2 {
+    font-size: 20px;
+    color: #360404;
 }
 .bttn {
 width: 100px;
 height:50px;
 border: none;
 border-radius: 50px;
-background-color:#4a52e8 ;
+background-color:#1f0909 ;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 .bttn2 {
     width: 100px;
@@ -31,7 +42,10 @@ background-color:#4a52e8 ;
     border: none;
     border-radius: 50px;
     background-color: white;
-    color: #4a94e8;
+    color: #782323;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     }
 .input {
   height:50px;
@@ -50,5 +64,5 @@ background-color:#4a52e8 ;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #4a94e8;
+    background-color: #782323;
 }

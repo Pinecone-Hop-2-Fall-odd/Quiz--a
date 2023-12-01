@@ -1,5 +1,5 @@
 "use client";
-import logopng from "../../public/logo2.png";
+import logopng from "../../public/htlogin.png";
 import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -10,13 +10,17 @@ const Page = () => {
   const router = useRouter();
 
   const handleLogin = async () => {
-    const { data } = await axios.post("http://localhost:3001/login", {
-      email: loginData.email,
-      password: loginData.password,
-    });
-    if (data?.user) {
-      localStorage.setItem("uid", data.user.id);
-      router.push("/");
+    try {
+      const { data } = await axios.post("http://localhost:8000/login", {
+        email: loginData.email,
+        password: loginData.password,
+      });
+      if (data?.user) {
+        localStorage.setItem("uid", data.user.id);
+        router.push("/");
+      }
+    } catch (err) {
+      console.log(err);
     }
   };
   return (
@@ -30,12 +34,16 @@ const Page = () => {
     >
       <div className="main">
         <Image
+          className="imgcss"
           src={logopng}
           alt="logo"
-          style={{ width: "100%", height: "40vh" }}
+
         />
       </div>
       <div className="login">
+        <div className="title2">Welcome back</div>
+        <div className="title">おかえり</div>
+
         <input
           className="input"
           placeholder="E-mail"

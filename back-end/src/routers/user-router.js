@@ -3,7 +3,7 @@ import {
   craeteUser,
   getAllUsers,
   login,
-} from "../controllers/user-controlllers";
+} from "../controllers/user-controlllers.js";
 
 export const userRouter = express.Router();
 

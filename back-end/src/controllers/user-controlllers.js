@@ -1,8 +1,8 @@
 const users = [
-  { email: "amraa@gmail.com", password: "12345678", id:"000001" },
-  { email: "bataa@gmail.com", password: "12345678", id:"000002" },
-  { email: "dorjoo@gmail.com", password: "12345678", id:"000003" },
-  { email: "dulmaa@gmail.com", password: "12345678", id:"000004" },
+  { email: "amraa@gmail.com", password: "12345678" },
+  { email: "bataa@gmail.com", password: "12345678" },
+  { email: "dorjoo@gmail.com", password: "12345678" },
+  { email: "dulmaa@gmail.com", password: "12345678" },
 ];
 
 export const craeteUser = (req, res) => {
@@ -26,7 +26,7 @@ export const login = (req, res) => {
     res.status(403).json({ messege: "Password required" });
     return;
   }
-  const filteredUser = users.filter((cur) => cur.email == -body.email);
+  const filteredUser = users.filter((cur) => cur.email === body.email);
   if (filteredUser.length === 0) {
     res.status(405).json({ message: "User not found" });
   } else {
