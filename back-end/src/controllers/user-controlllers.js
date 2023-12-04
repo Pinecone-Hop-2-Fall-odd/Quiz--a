@@ -1,18 +1,24 @@
-const users = [
-  { email: "amraa@gmail.com", password: "12345678" },
-  { email: "bataa@gmail.com", password: "12345678" },
-  { email: "dorjoo@gmail.com", password: "12345678" },
-  { email: "dulmaa@gmail.com", password: "12345678" },
-];
+import { UserModel } from "../models/user-model.js";
 
-export const craeteUser = (req, res) => {
+// const users = [
+//   { email: "amraa@gmail.com", password: "12345678" },
+//   { email: "bataa@gmail.com", password: "12345678" },
+//   { email: "dorjoo@gmail.com", password: "12345678" },
+//   { email: "dulmaa@gmail.com", password: "12345678" },
+// ];
+
+export const craeteUser = async (req, res) => {
   const { name, id } = req.body;
-  users.push({ name, id });
-  res.json(users);
+  // users.push({ name, id });
+  const result = await UserModel.create({ name, id });
+  res.json(result);
 };
 
-export const getAllUsers = (req, res) => {
-  res.json({ data: users });
+export const getAllUsers = async (req, res) => {
+  const result = await UserModel.find();
+  // UserModel.findByIdAndUpdate
+  // UserModel.findBy({email: body.email})
+  res.json({ data: result });
 };
 
 // login
