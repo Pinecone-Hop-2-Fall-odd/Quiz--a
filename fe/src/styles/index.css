@@ -1,58 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Handlee&display=swap");
+
+* {
+  font-family: "Handlee", cursive;
+}
+
 .main {
-    width: 50%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .main2 {
-    width: 50%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #782323;
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #782323;
+}
+.head {
+  width: 100%;
+  height: 35vh;
+  background-color: #782323;
+  display: flex;
+  justify-content: space-between;
+}
+.ht{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ht1{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-right: 20px;
+  gap: 25px;
+}
+.ht2{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.ht3{
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .imgcss {
- width: 400px;
- height: 420px;
+  width: 400px;
+  height: 420px;
+}
+.imgcss2 {
+  width: 300px;
+  height: 310px;
+}
+.imgcss3 {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
 }
 .title {
-    font-size: 100px;
-    color: #360404;
+  font-size: 100px;
+  color: #360404;
 }
 .title3 {
-    font-size: 50px;
-    color: #360404;
+  font-size: 50px;
+  color: #360404;
 }
 .title2 {
-    font-size: 20px;
-    color: #360404;
+  font-size: 20px;
+  color: #360404;
 }
 .bttn {
-width: 100px;
-height:50px;
-border: none;
-border-radius: 50px;
-background-color:#1f0909 ;
-display: flex;
-align-items: center;
-justify-content: center;
+  width: 100px;
+  height: 50px;
+  border: none;
+  border-radius: 50px;
+  background-color: #1f0909;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .bttn2 {
-    width: 100px;
-    height:50px;
-    border: none;
-    border-radius: 50px;
-    background-color: white;
-    color: #782323;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    }
+  width: 100px;
+  height: 50px;
+  border: none;
+  border-radius: 50px;
+  background-color: white;
+  color: #782323;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .input {
-  height:50px;
+  height: 50px;
   background-color: white;
   border: none;
   border-radius: 30px;
@@ -61,12 +108,12 @@ justify-content: center;
   color: black;
 }
 .login {
-    width: 50%;
-    height: 100vh;
-    display: flex;
-    gap: 20px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #782323;
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #782323;
 }

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import Link from "next/link";
 
 const Page = () => {
   const [loginData, setloginData] = useState({});
@@ -16,8 +17,8 @@ const Page = () => {
         password: loginData.password,
       });
       if (data?.user) {
-        localStorage.setItem("uid", data.user.id);
-        router.push("/");
+        localStorage.setItem("uid", data.user._id);
+        router.push("/main1");
       }
     } catch (err) {
       console.log(err);
@@ -33,12 +34,7 @@ const Page = () => {
       }}
     >
       <div className="main">
-        <Image
-          className="imgcss"
-          src={logopng}
-          alt="logo"
-
-        />
+        <Image className="imgcss" src={logopng} alt="logo" />
       </div>
       <div className="login">
         <div className="title2">Welcome back</div>
@@ -60,9 +56,9 @@ const Page = () => {
             console.log(e.target.value);
           }}
         />
-        <button className="bttn2" onClick={handleLogin}>
+        <Link className="bttn2" href="" onClick={handleLogin}>
           Log in
-        </button>
+        </Link>
       </div>
     </div>
   );

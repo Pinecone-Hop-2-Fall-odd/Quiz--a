@@ -1,13 +1,13 @@
 import { UserModel } from "../models/user-model.js";
 
-export const users = [
-  {
-    id: "sanoifhjsapomfp868",
-    name: "bob",
-    email: "email@gmail.com",
-    password: "pass",
-  },
-];
+// export const users = [
+//   {
+//     id: "sanoifhjsapomfp868",
+//     name: "bob",
+//     email: "email@gmail.com",
+//     password: "pass",
+//   },
+// ];
 
 export const getAllUsers = async (req, res) => {
   const users_data = await UserModel.find({});

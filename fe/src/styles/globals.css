@@ -1,5 +1,10 @@
-@import url("./index.css");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+
+@import url("./index.css");
+@import url("./main1.css");
 :root {
   --max-width: 1100px;
   --border-radius: 12px;

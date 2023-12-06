@@ -9,16 +9,21 @@ const Page = () => {
   const [signUp, setsignUp] = useState({});
   const router = useRouter();
 
-  const handleLogin = async () => {
+  console.log(signUp);
+  const handleSignup = async () => {
     try {
-      const { data } = await axios.post("http://localhost:8000/signup", {
-        email: signUp.email,
-        password: signUp.password,
-      });
-      if (data?.user) {
-        localStorage.setItem("uid", data.user.id);
-        router.push("/");
-      }
+      await axios
+        .post("http://localhost:8000/user", {
+          name: signUp.name,
+          age: signUp.age,
+          email: signUp.email,
+          password: signUp.password,
+        })
+        .then((res) => {
+          if (res.data.message === "success") {
+            router.push("/login");
+          }
+        });
     } catch (err) {
       console.log(err);
     }
@@ -33,17 +38,32 @@ const Page = () => {
       }}
     >
       <div className="main">
-        <Image
-          className="imgcss"
-          src={logopng}
-          alt="logo"
-
-        />
+        <Image className="imgcss" src={logopng} alt="logo" />
       </div>
       <div className="login">
-        <div className="title2">Hi there! I've never seen you before. Who are you?</div>
-        <div className="title3">やあ！今まで会ったことがありません。あなたは誰ですか？</div>
+        <div className="title2">
+          Hi there! I've never seen you before. Who are you?
+        </div>
+        <div className="title3">
+          やあ！今まで会ったことがありません。あなたは誰ですか？
+        </div>
 
+        <input
+          className="input"
+          placeholder="Name"
+          onChange={(e) => {
+            setsignUp((prev) => ({ ...prev, name: e.target.value }));
+            console.log(e.target.value);
+          }}
+        />
+        <input
+          className="input"
+          placeholder="Age"
+          onChange={(e) => {
+            setsignUp((prev) => ({ ...prev, age: e.target.value }));
+            console.log(e.target.value);
+          }}
+        />
         <input
           className="input"
           placeholder="E-mail"
@@ -60,23 +80,7 @@ const Page = () => {
             console.log(e.target.value);
           }}
         />
-        <input
-          className="input"
-          placeholder="First name"
-          onChange={(e) => {
-            setsignUp((prev) => ({ ...prev, fname: e.target.value }));
-            console.log(e.target.value);
-          }}
-        />
-        <input
-          className="input"
-          placeholder="Last name"
-          onChange={(e) => {
-            setsignUp((prev) => ({ ...prev, lname: e.target.value }));
-            console.log(e.target.value);
-          }}
-        />
-        <button className="bttn" onClick={handleLogin}>
+        <button className="bttn" onClick={handleSignup}>
           Sign up
         </button>
       </div>
