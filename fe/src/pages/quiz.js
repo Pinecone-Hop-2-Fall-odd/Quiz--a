@@ -1,5 +1,5 @@
 "use client";
-import logopng from "../../public/htmain.png";
+import logopng from "../../public/qzht.png";
 import logopng2 from "../../public/htpf.png";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -38,17 +38,15 @@ const Page = () => {
         </div>
         <div className="ht">
           <Image className="imgcss2" src={logopng} alt="logo" />
-          <h3 className="title2">Choose your quiz</h3>
+          <h3 className="title2"></h3>
         </div>
         <div className="ht1">
-          <Link href="/quiz">Make new quiz</Link>
+          <Link href="/main1">Back to home page</Link>
           <Link href="/login">Log out</Link>
         </div>
       </div>
       <div>
-        <Link className="an" href="/anm">
-          1. Anime /AOT/
-        </Link>
+        
       </div>
     </div>
   );

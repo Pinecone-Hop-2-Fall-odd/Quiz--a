@@ -12,14 +12,16 @@ const Page = () => {
 
   const handleLogin = async () => {
     try {
-      const { data } = await axios.post("http://localhost:8000/login", {
+      await axios.post("http://localhost:8000/login", {
         email: loginData.email,
         password: loginData.password,
+      }).then((response) => {
+        if (response.data?.token) {
+          localStorage.setItem("token", response.data.token);
+          router.push("/main1");
+        }
       });
-      if (data?.user) {
-        localStorage.setItem("uid", data.user._id);
-        router.push("/main1");
-      }
+      
     } catch (err) {
       console.log(err);
     }
@@ -51,6 +53,7 @@ const Page = () => {
         <input
           className="input"
           placeholder="Password"
+          type="password"
           onChange={(e) => {
             setloginData((prev) => ({ ...prev, password: e.target.value }));
             console.log(e.target.value);

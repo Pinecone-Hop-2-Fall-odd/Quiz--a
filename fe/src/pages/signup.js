@@ -75,6 +75,7 @@ const Page = () => {
         <input
           className="input"
           placeholder="Password"
+          type="password"
           onChange={(e) => {
             setsignUp((prev) => ({ ...prev, password: e.target.value }));
             console.log(e.target.value);
