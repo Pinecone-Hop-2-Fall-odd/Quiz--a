@@ -5,21 +5,32 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
+import { BACK_END_URL } from "@/common/back-end-url";
 
 const Page = () => {
   const [id, setId] = useState("");
   const [data, setData] = useState("");
+  const [categories, setCategories] = useState([]);
   useEffect(() => {
     if (window) {
       const id = localStorage.getItem("uid");
       setId(id);
       axios
-        .get(`http://localhost:8000/user`, {
+        .get(`${BACK_END_URL}/user`, {
           headers: { "x-access-token": localStorage.getItem("token") },
         })
         .then((response) => setData(response.data.data.name));
     }
   }, [id]);
+
+  const getAllCategories = async () => {
+    const result = await axios.get(`${BACK_END_URL}/categories`);
+    setCategories(result.data.data);
+  };
+
+  useEffect(() => {
+    getAllCategories();
+  }, []);
 
   return (
     <div
@@ -46,9 +57,13 @@ const Page = () => {
         </div>
       </div>
       <div>
-        <Link className="an" href="/anm">
-          1. Anime /AOT/
-        </Link>
+        {categories.map((category) => {
+          return (
+            <Link className="an" href={`/main?category=${category._id}`}>
+              <div value={category._id}>{category.category}</div>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

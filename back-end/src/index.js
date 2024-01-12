@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import { userRouter } from "./routers/user-router.js";
+import { quizRouter } from "./routers/quiz-router.js";
 
 const app = express();
 
@@ -9,6 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use(userRouter);
+app.use(quizRouter);
 
 const connectDb = async () => {
   await mongoose.connect(
@@ -19,4 +21,4 @@ const connectDb = async () => {
 
 connectDb();
 
-app.listen(8000);
+app.listen(8008);

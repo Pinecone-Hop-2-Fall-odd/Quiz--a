@@ -1,6 +1,6 @@
 import { UserModel } from "../models/user-model.js";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken"
+import jwt from "jsonwebtoken";
 
 export const createUser = async (req, res) => {
   try {
@@ -44,10 +44,14 @@ export const login = async (req, res) => {
     res.status(405).json({ message: "User not found" });
   } else {
     if (await bcrypt.compare(body.password, oneUser.password)) {
-      const token = jwt.sign({ user_id: oneUser._id, email: oneUser.email }, "Mykey", {
-        expiresIn: "2d",
-      });
-      res.status(200).json({ token});
+      const token = jwt.sign(
+        { user_id: oneUser._id, email: oneUser.email },
+        "Mykey",
+        {
+          expiresIn: "2d",
+        }
+      );
+      res.status(200).json({ token });
       return;
     } else {
       res.status(405).json({ message: "Password not match" });

@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import Link from "next/link";
+import { BACK_END_URL } from "@/common/back-end-url";
 
 const Page = () => {
   const [loginData, setloginData] = useState({});
@@ -12,7 +13,7 @@ const Page = () => {
 
   const handleLogin = async () => {
     try {
-      await axios.post("http://localhost:8000/login", {
+      await axios.post(`${ BACK_END_URL }/login`, {
         email: loginData.email,
         password: loginData.password,
       }).then((response) => {

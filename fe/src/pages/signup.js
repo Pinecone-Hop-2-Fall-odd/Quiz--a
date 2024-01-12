@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import { BACK_END_URL } from "@/common/back-end-url";
 
 const Page = () => {
   const [signUp, setsignUp] = useState({});
@@ -13,7 +14,7 @@ const Page = () => {
   const handleSignup = async () => {
     try {
       await axios
-        .post("http://localhost:8000/user", {
+        .post(`${BACK_END_URL}/user`, {
           name: signUp.name,
           age: signUp.age,
           email: signUp.email,

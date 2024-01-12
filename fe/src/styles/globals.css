@@ -5,6 +5,7 @@
 
 @import url("./index.css");
 @import url("./main1.css");
+@import url("./quiz.css");
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
