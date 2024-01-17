@@ -52,9 +52,9 @@ export const getQuizzesByCategory = async (req, res) => {
 
 export const getFilteredQuiz = async (req, res) => {
   try {
-    const {id} = req.params;
-    const quizzes = await QuizModel.find({category : id})
-    res.status(200).json({quizzes});
+    const { id } = req.params;
+    const quizzes = await QuizModel.find({ category: id });
+    res.status(200).json({ quizzes });
   } catch (err) {
     res.status(401).json({ message: "error" });
   }

@@ -18,6 +18,7 @@ const Page = () => {
   const [quizQuestion, setQuizQuestion] = useState([]);
   const [quizAnswer, setQuizAnswer] = useState();
   const [num, setNum] = useState(0);
+  const [final, setFinal] = useState(0);
   const params = useSearchParams();
   const urlID = params.get("category");
   console.log(urlID);
@@ -134,6 +135,48 @@ const Page = () => {
     }
   }, [id]);
 
+  if (num == 10) {
+    return (
+    <div
+    style={{
+      backgroundColor: "white",
+      width: "100%",
+      height: "100vh",
+    }}
+  >
+    <div className="head">
+      <div className="ht2">
+        <div className="ht3">
+          <Image className="imgcss3" src={logopng2} alt="pf" />
+          <div>{data}</div>
+        </div>
+      </div>
+      <div className="ht">
+        <Image className="imgcss2" src={logopng} alt="logo" />
+        <h3 className="title2">Good luck</h3>
+      </div>
+      <div className="ht1">
+        <Link href="/quiz">Make new quiz</Link>
+        <Link href="/login">Log out</Link>
+      </div>
+    </div>
+    <div className="dv3">
+    <div className="final">
+      {final}/{quizQuestion.length}
+    </div>
+    <button className="bttn" href="/main1">Back to main page</button>
+    </div>
+  </div>)
+  }
+
+  function handleAnswer(isCorrect) {
+    if (isCorrect) {
+      setFinal((prev) => (prev += 1));
+    }
+    setAnswerStyle(true);
+    setNum(num + 1)
+  }
+  console.log(final)
   return (
     <div
       style={{
@@ -175,23 +218,14 @@ const Page = () => {
           {quizQuestion[num]?.answers.map((data) => {
             return (
               <button
-                onClick={() => setAnswerStyle(true)}
-                className={`${
-                  answerStyle
-                    ? `${data.isCorrect ? "btnCorrect" : "btnWrong"}`
-                    : "btn3"
-                } `}
+                onClick={() => handleAnswer(data.isCorrect)}
+                className={"btn3"}
               >
                 {data.answer}
               </button>
             );
           })}
         </div>
-      </div>
-      <div className="dv2">
-        <button className="bttn4" onClick={() => setNum(num + 1)}>
-          Next Question
-        </button>
       </div>
     </div>
   );

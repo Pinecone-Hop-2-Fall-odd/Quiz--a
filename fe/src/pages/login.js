@@ -13,16 +13,21 @@ const Page = () => {
 
   const handleLogin = async () => {
     try {
-      await axios.post(`${ BACK_END_URL }/login`, {
-        email: loginData.email,
-        password: loginData.password,
-      }).then((response) => {
-        if (response.data?.token) {
-          localStorage.setItem("token", response.data.token);
-          router.push("/main1");
-        }
-      });
-      
+      await axios
+        .post(
+          `${BACK_END_URL}/login`,
+          {
+            email: loginData.email,
+            password: loginData.password,
+          },
+          { headers: { "Access-Control-Allow-Origin": true } }
+        )
+        .then((response) => {
+          if (response.data?.token) {
+            localStorage.setItem("token", response.data.token);
+            router.push("/main1");
+          }
+        });
     } catch (err) {
       console.log(err);
     }

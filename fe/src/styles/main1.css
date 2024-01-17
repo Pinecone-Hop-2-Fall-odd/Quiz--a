@@ -10,6 +10,15 @@
   align-items: center;
   gap: 50px;
 }
+.dv3 {
+  width: 100%;
+  height: 55vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
 .dv2 {
   width: 100%;
   height: 10vh;
